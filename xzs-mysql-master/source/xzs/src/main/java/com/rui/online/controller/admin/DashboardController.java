@@ -38,7 +38,7 @@ public class DashboardController extends BaseApiController {
     }
     @RequestMapping("hello")
     public String hello(){
-        return "nihao";
+        return "zaijian";
     }
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public RestResponse<IndexVM> Index() {
