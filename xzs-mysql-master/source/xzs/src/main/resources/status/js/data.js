@@ -1,12 +1,10 @@
 $(document).ready(function(){
 	// 用户日志
 	$.ajax({
-	    url:"http://localhost:8000/api/chart/userlog",
+	    url:urlconfig("userlog"),
 	    type:"POST",
 	    data:"",
 	    success: function(data){
-			// console.log(data);
-			// console.log("================");
 			var ul_list = $(".ul_list ");
 			ul_list.empty();
 			
@@ -31,7 +29,7 @@ $(document).ready(function(){
 	
 	// 试题数
 	$.ajax({
-	    url:"http://localhost:8000/api/chart/testNum",
+	    url:urlconfig("testNum"),
 	    type:"POST",
 	    data:"",
 	    success: function(data){
@@ -107,7 +105,7 @@ $(document).ready(function(){
 	
 	// 用户监听器
 	$.ajax({
-	    url:"http://localhost:8000/api/chart/userListener",
+	    url:urlconfig("userListener"),
 	    type:"POST",
 	    data:"",
 	    success: function(data){
@@ -125,7 +123,7 @@ $(document).ready(function(){
 	
 	// 学生做题排行
 	$.ajax({
-	    url:"http://localhost:8000/api/chart/userCorrect",
+	    url:urlconfig("userCorrect"),
 	    type:"POST",
 	    data:"",
 	    success: function(data){
