@@ -44,7 +44,7 @@
         </where>
     </select>
 
-    <select id="selectByUserName"  resultType="com.rui.online.domain.other.KeyValue">
+            <select id="selectByUserName"  resultType="com.rui.online.domain.other.KeyValue">
         SELECT  id as value,user_name as name
         from t_user
         where deleted=0  and user_name like concat('%',#{value},'%')

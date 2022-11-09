@@ -24,4 +24,8 @@ public interface UserEventLogMapper extends BaseMapper<UserEventLog> {
     List<KeyValue> selectCountByDate(@Param("startTime") Date startTime, @Param("endTime") Date endTime);
 
     List<UserEventLog> page(UserEventPageRequestVM requestVM);
+
+    Integer selectLoginByMonth(Date startTime, Date endTime);
+
+    Integer selectLoginByToday(Date startDay, Date endDay);
 }

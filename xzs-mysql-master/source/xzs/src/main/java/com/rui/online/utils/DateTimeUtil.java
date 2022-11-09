@@ -1,5 +1,6 @@
 package com.rui.online.utils;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -142,4 +143,35 @@ public class DateTimeUtil {
         }
         return list;
     }
+
+    public static Date getStartDay(Date date){
+
+//        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        //一天的开始时间 yyyy:MM:dd 00:00:00
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        Date dayStart = calendar.getTime();
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String startStr = simpleDateFormat.format(dayStart);
+        return dayStart;
+    }
+
+    public static Date getEndDay(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        //一天的结束时间 yyyy:MM:dd 23:59:59
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+        Date dayEnd = calendar.getTime();
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String endStr = simpleDateFormat.format(dayEnd);
+        return dayEnd;
+    }
+
 }

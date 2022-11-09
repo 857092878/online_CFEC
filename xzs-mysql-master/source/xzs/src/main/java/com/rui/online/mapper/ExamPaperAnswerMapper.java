@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,5 +25,7 @@ public interface ExamPaperAnswerMapper extends BaseMapper<ExamPaperAnswer> {
 
     ExamPaperAnswer getByPidUid(@Param("pid") Integer paperId, @Param("uid") Integer uid);
 
-    void studentPage(ExamPaperAnswerPageVM requestVM);
+    List<ExamPaperAnswer> studentPage(ExamPaperAnswerPageVM requestVM);
+
+    Integer answerByMonth(Date startTime, Date endTime);
 }

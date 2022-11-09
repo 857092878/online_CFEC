@@ -3,8 +3,12 @@ package com.rui.online.service;
 import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.question.QuestionEditRequestVM;
 import com.rui.online.VO.admin.question.QuestionPageRequestVM;
+import com.rui.online.VO.chart.QuestionByGrade;
 import com.rui.online.pojo.Question;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -31,4 +35,6 @@ public interface IQuestionService extends IService<Question> {
     Question selectById(Integer id);
 
     void updateByIdFilter(Question question);
+
+    List<QuestionByGrade> selectallGradeQuestion();
 }

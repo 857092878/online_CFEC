@@ -43,5 +43,10 @@
             </if>
         </where>
     </select>
-
+<!--    List<QuestionByGrade> selectGradeQuestion();-->
+    <select id="selectGradeQuestion" resultType="com.rui.online.VO.chart.QuestionByGrade">
+        SELECT grade_level grade,count(id) count
+        FROM `t_question`
+        group by grade_level;
+    </select>
 </mapper>

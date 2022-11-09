@@ -4,18 +4,24 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.user.UserEventPageRequestVM;
+import com.rui.online.VO.chart.UserLogVo;
 import com.rui.online.domain.other.KeyValue;
 import com.rui.online.pojo.UserEventLog;
 import com.rui.online.mapper.UserEventLogMapper;
 import com.rui.online.service.IUserEventLogService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.rui.online.utils.CopyUtils;
 import com.rui.online.utils.DateTimeUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.rui.online.utils.DateTimeUtil.parse;
 
 /**
  * <p>
@@ -59,4 +65,31 @@ public class UserEventLogServiceImpl extends ServiceImpl<UserEventLogMapper, Use
         List<UserEventLog> userEventLogs = userEventLogMapper.selectList(lambdaQueryWrapper);
         return userEventLogs;
     }
+
+    @Override
+    public List<UserLogVo> selectUserLog() {
+        LambdaQueryWrapper<UserEventLog> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.orderByDesc(UserEventLog::getCreateTime).last("limit 20");
+        List<UserEventLog> userEventLogs = userEventLogMapper.selectList(lambdaQueryWrapper);
+        List<UserLogVo> logVos = CopyUtils.CopyList(userEventLogs, UserLogVo.class);
+
+        return logVos;
+    }
+
+    @Override
+    public void insertByFilter(UserEventLog userEventLog) {
+        userEventLogMapper.insert(userEventLog);
+    }
+
+
+    @Override
+    public Integer loginByMonth(Date startTime, Date endTime) {
+        return userEventLogMapper.selectLoginByMonth(startTime,endTime);
+    }
+
+    @Override
+    public Integer loginByToday(Date startDay, Date endDay) {
+        return userEventLogMapper.selectLoginByToday(startDay,endDay);
+    }
+
 }

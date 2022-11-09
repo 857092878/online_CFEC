@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.question.QuestionEditItemVM;
 import com.rui.online.VO.admin.question.QuestionEditRequestVM;
 import com.rui.online.VO.admin.question.QuestionPageRequestVM;
+import com.rui.online.VO.chart.QuestionByGrade;
 import com.rui.online.domain.enums.QuestionStatusEnum;
 import com.rui.online.domain.enums.QuestionTypeEnum;
 import com.rui.online.domain.question.QuestionItemObject;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.rui.online.service.impl.ExamPaperServiceImpl.modelMapper;
@@ -167,6 +169,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     @Override
     public void updateByIdFilter(Question question) {
         questionMapper.updateById(question);
+    }
+
+    @Override
+    public List<QuestionByGrade> selectallGradeQuestion() {
+        return questionMapper.selectGradeQuestion();
     }
 
     public void setQuestionInfoFromVM(TextContent infoTextContent, QuestionEditRequestVM model) {

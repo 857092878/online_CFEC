@@ -2,6 +2,7 @@ package com.rui.online.service;
 
 import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.education.SubjectPageRequestVM;
+import com.rui.online.VO.chart.SubjectQuestionNum;
 import com.rui.online.pojo.Subject;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -30,4 +31,6 @@ public interface ISubjectService extends IService<Subject> {
     Integer levelBySubjectId(Integer subjectId);
 
     List<Subject> getSubjectByLevel(Integer userLevel);
+
+    List<SubjectQuestionNum> selectSubjectQuestionNum();
 }

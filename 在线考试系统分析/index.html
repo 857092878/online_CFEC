@@ -1,0 +1,630 @@
+<!doctype html>
+<html>
+<head>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- <meta http-equiv="refresh" content="60;url='http://mtw.so/5FRdFE'"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>在线考试系统可视化大屏</title>
+<!--大屏-->
+<link type="text/css" href="css/public.css" rel="stylesheet">
+<link type="text/css" href="css/icon.css" rel="stylesheet">
+<link type="text/css" href="css/index.css" rel="stylesheet">
+<script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth /768*100 + 'px';
+</script>
+<script src="js/urlConfig.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="js/jquery.numscroll.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+.abc{
+
+}
+
+</style>
+
+<body>
+<div class="bg">
+	<div class="title">在线考试系统可视化大屏</div>
+    <div class="leftMain">
+    	<div class="leftMain_top">
+        	<div class="leftMain_topIn">
+            	<ul>
+                	<li>
+                        <div class="liIn">
+                            <h3>试卷总数</h3>
+                            <p class="shu"><span id="shu1">6890.69</span><i>份</i></p>
+                            <!-- <div class="zi"><span class="span1">小标题：文字</span><span>小标题：文字</span></div> -->
+                            <span class="border_bg_leftTop"></span>
+                            <span class="border_bg_rightTop"></span>
+                            <span class="border_bg_leftBottom"></span>
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>题目总数</h3>
+                            <p class="shu"><span id="shu2">6090.99</span><i>个</i></p>
+                            <!-- <div class="zi"><span class="span1">小标题：文字</span><span>小标题：文字</span></div> -->
+                            <span class="border_bg_leftTop"></span>
+                            <span class="border_bg_rightTop"></span>
+                            <span class="border_bg_leftBottom"></span>
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>答卷总数</h3>
+                            <p class="shu"><span id="shu3">2890.39</span><i>份</i></p>
+                            <!-- <div class="zi"><span class="span1">小标题：文字</span><span>小标题：文字</span></div> -->
+                            <span class="border_bg_leftTop"></span>
+                            <span class="border_bg_rightTop"></span>
+                            <span class="border_bg_leftBottom"></span>
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                	<li>
+                        <div class="liIn">
+                            <h3>答题总数</h3>
+                            <p class="shu"><span id="shu4">7590.15</span><i>个</i></p>
+                            <!-- <div class="zi"><span class="span1">小标题：文字</span><span>小标题：文字</span></div> -->
+                            <span class="border_bg_leftTop"></span>
+                            <span class="border_bg_rightTop"></span>
+                            <span class="border_bg_leftBottom"></span>
+                            <span class="border_bg_rightBottom"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>年级题目占比</h3>
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain"></div>
+                    <script type="text/javascript">
+					//window.onload = function () {
+						$(function(){
+							
+							
+							//指定图表的配置项和数据
+							var dataAxis = [];
+							var data = [];
+							// var dataAxis = ["一年级","二年级","三年级","四年级","五年级","六年级","初一","初二","初三","高一","高二","高三",];
+							// var data = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149];
+							var yMax = 500;
+							var dataShadow = [];
+							
+							// 年级题目占比
+							$.ajax({
+							    url:urlconfig("questionGrade"),
+							    type:"POST",
+							    data:"",
+							    success: function(data){
+									console.log("成功");
+									option.xAxis.data = data.grade;
+									option.series[1].data = data.count;
+									var myChart = echarts.init(document.getElementById('chartmain'));
+									// 使用刚指定的配置项和数据显示图表。
+									myChart.setOption(option);
+									},
+							    error: function(){
+									console.log("错误")
+								}
+							});
+							
+							for (var i = 0; i < data.length; i++) {
+								dataShadow.push(yMax);
+							}
+							
+							option = {
+								title: {
+									text: '',
+									subtext: ''
+								},
+								grid:{
+									x:40,
+									y:40,
+									x2:20,
+									y2:20,
+							
+								},
+								xAxis: {
+									data: dataAxis,
+									axisLabel: {
+										/*inside: true,*/
+										interval:0,
+										textStyle: {
+											color: '#fff',
+											fontSize: 12
+							
+										}
+									},
+									axisTick: {
+										show: false,
+									},
+									axisLine: {
+										show: true,
+										symbol:['none', 'arrow'],
+										symbolOffset: 12,
+										lineStyle:{
+											color: '#fff',
+										}
+									},
+									z: 10
+								},
+								yAxis: {
+									type: 'value',
+									name: '数量：个',
+									axisLine: {
+										show: true,
+										symbol: ['none', 'arrow'],
+										symbolOffset: 12,
+										lineStyle:{
+											color: '#fff',
+										}
+									},
+									axisTick: {
+										show: false
+									},
+									axisLabel: {
+										textStyle: {
+											color: '#fff',
+											fontSize: 12
+										}
+									}
+								},
+							
+								dataZoom: [
+									{
+										type: 'inside'
+									}
+								],
+								series: [
+									{ // For shadow
+										type: 'bar',
+										itemStyle: {
+											color: 'rgba(0,0,0,0.05)'
+										},
+										barGap: '-100%',
+										barCategoryGap: '40%',
+										data: dataShadow,
+										animation: false
+									},
+									{
+										type: 'bar',
+										itemStyle: {
+											color: new echarts.graphic.LinearGradient(
+												0, 0, 0, 1,
+												[
+													{offset: 0, color: '#0efdff'},
+													{offset: 0.5, color: '#188df0'},
+													{offset: 1, color: '#188df0'}
+												]
+											)
+										},
+										emphasis: {
+											itemStyle: {
+												color: new echarts.graphic.LinearGradient(
+													0, 0, 0, 1,
+													[
+														{offset: 0, color: '#2378f7'},
+														{offset: 0.7, color: '#2378f7'},
+														{offset: 1, color: '#0efdff'}
+													]
+												)
+											}
+										},
+										data: data
+									}
+								]
+							};
+							
+							// Enable data zoom when user click bar.
+							/*var zoomSize = 6;
+							myChart.on('click', function (params) {
+								console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+								myChart.dispatchAction({
+									type: 'dataZoom',
+									startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+									endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+								});
+							});*/
+							
+							//获取dom容器
+						})
+
+								
+						//};
+					</script>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3>学生做题数量排行</h3>
+                    <div class="biaoge biaoge_pai" style="width:100%; height:25vh">
+                    	<div class="biaoge_paiIn">
+                        	<ul class="userTest">
+                            	<li>
+                                	<div class="liIn">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第一名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:98.5%;"></div></div>
+                                        <p class="num">98.5%</p>
+                                    </div>
+                                </li>
+                             	<li>
+                                	<div class="liIn liIn2">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第二名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:88.5%;"></div></div>
+                                        <p class="num">88.5%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn3">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第三名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:68.5%;"></div></div>
+                                        <p class="num">68.5%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn4">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第四名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:40.5%;"></div></div>
+                                        <p class="num">40.5%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn5">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第五名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:22.5%;"></div></div>
+                                        <p class="num">22.5%</p>
+                                    </div>
+                                </li>
+                            	<li>
+                                	<div class="liIn liIn6">
+                                    	<div class="liIn_left"><span class="bot"></span><span class="zi">第六名</span></div>
+                                        <div class="liIn_line"><div class="line_lineIn" style="width:10.5%;"></div></div>
+                                        <p class="num">10.5%</p>
+                                    </div>
+                                </li>
+                           </ul>
+                        </div>
+                    </div>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+        <div class="leftMain_middle">
+        	<div class="leftMain_middle_left">
+            	<div class="leftMain_middle_leftIn">
+                	<h3>本月用户活跃度</h3>
+                    <div class="biaoge" style="width:100%; height:25vh" id="chartmain_zhe"></div>
+                    <script type="text/javascript">
+
+					$(function(){
+						option1 = {
+							title: {
+								text: ''
+							},
+							tooltip: {
+								trigger: 'axis'
+							},
+							legend: {
+								textStyle: {
+									color: '#fff',
+									fontSize: 12,
+								},
+								right:'10%',
+								data: ['用户活跃度']
+							},
+							grid:{
+									x:40,
+									y:40,
+									x2:20,
+									y2:20,
+								},
+							toolbox: {
+								feature: {
+									//saveAsImage: {}
+								}
+							},
+							xAxis: {
+								type: 'category',
+								boundaryGap: false,
+								axisLabel: {
+												/*inside: true,*/
+												interval:0,
+												textStyle: {
+													color: '#fff',
+													fontSize: 12
+						
+												}
+											},
+											axisTick: {
+												show: false,
+											},
+											axisLine: {
+												show: true,
+												symbol:['none', 'arrow'],
+												symbolOffset: 12,
+												lineStyle:{
+													color: '#fff',
+												}
+											},
+								data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00']
+							},
+							yAxis: {
+								type: 'value',
+						
+								axisLine: {
+									show: true,
+									symbol: ['none', 'arrow'],
+									symbolOffset: 12,
+									lineStyle:{
+										color: '#fff',
+									}
+								},
+								axisTick: {
+									show: false
+								},
+								axisLabel: {
+									textStyle: {
+										color: '#fff',
+										fontSize: 12
+									}
+								}
+							},
+							series: [
+								{
+									name: '用户活跃度',
+									type: 'line',
+									stack: '总量',
+									data: [280, 102, 191, 134, 390, 230, 210],
+									itemStyle: {
+										 normal: {
+										   color: "#0efdff",//折线点的颜色
+										   lineStyle: {
+										   color: "#0efdff",//折线的颜色
+										   width:2,
+										  }
+										},
+									}
+								},
+								// {
+								// 	name: '折线二',
+								// 	type: 'line',
+								// 	stack: '总量',
+								// 	data: [100, 132, 131, 234, 290, 330, 110]
+								// },
+							]
+						};
+						// 用户活跃度
+						$.ajax({
+						    url:urlconfig("userActivity"),
+						    type:"POST",
+						    data:"",
+						    success: function(data){
+								option1.xAxis.data = data.month;
+								option1.series[0].data = data.data;
+								var myChart = echarts.init(document.getElementById('chartmain_zhe'));
+								// 使用刚指定的配置项和数据显示图表。
+								myChart.setOption(option1);
+								},
+						    error: function(){
+								console.log("错误")
+							}
+						});
+
+					})
+					
+						//};
+					</script>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        	<div class="leftMain_middle_right">
+            	<div class="leftMain_middle_rightIn">
+                	<h3>网站监听器</h3>
+                    <div class="biaoge biaoge_bi" style="width:100%; height:25vh">
+                    	<ul>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu11">23</p>
+                                    <p class="zi">今日登陆数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu22">107</p>
+                                    <p class="zi">本月答题数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu33">107</p>
+                                    <p class="zi">管理员数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu44">23</p>
+                                    <p class="zi">本月登陆数</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu55">23</p>
+                                    <p class="zi">共计答题</p>
+                                </div>
+                            </li>
+                        	<li>
+                            	<div class="liIn">
+                                	<p class="shu shu66">23</p>
+                                    <p class="zi">用户数</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <span class="border_bg_leftTop"></span>
+                    <span class="border_bg_rightTop"></span>
+                    <span class="border_bg_leftBottom"></span>
+                    <span class="border_bg_rightBottom"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightMain">
+        <div class="rightMain_top">
+            <div class="rightMain_topIn">
+                <h3>学科总题目</h3>
+                <div class="biaoge" style="width:100%; height:30vh" id="chartmain_bing"></div>
+                <script type="text/javascript">
+					$(function(){
+						option2 = {
+								title: {
+									text: '学科',
+									subtext: '',
+									left: 'right',
+									textStyle: {
+										color: '#fff',
+										fontSize: 12
+									}
+								},
+								tooltip: {
+									trigger: 'item',
+									formatter: '{a} <br/>{b} : {c} ({d}%)'
+								},
+								legend: {
+									type: 'scroll',
+									orient: 'vertical',
+									right: 10,
+									top: 40,
+									bottom: 20,
+									left: 'right',
+									textStyle: {
+										color: '#fff',
+										fontSize: 12
+									}
+						
+								},
+								grid:{
+									x:'-10%',
+									y:40,
+									x2:20,
+									y2:20,
+								},
+								color : [ '#09d0fb', '#f88cfb', '#95f8fe', '#f9f390',  '#ecfeb7' ],
+								series: [
+									{
+										type: 'pie',
+										radius: '65%',
+										center: ['50%', '50%'],
+										selectedMode: 'single',
+										data: [
+											{value: 1548, name: '语文'},
+											{value: 535, name: '数学'},
+											{value: 510, name: '英语'},
+											{value: 634, name: '物理'},
+											{value: 735, name: '化学'}
+										],
+										emphasis: {
+											itemStyle: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'rgba(0, 0, 0, 0.5)'
+											}
+										}
+									}
+								]
+							};
+							// 学科题目排行
+							$.ajax({
+							    url:urlconfig("subjectNum"),
+							    type:"POST",
+							    data:"",
+							    success: function(data){
+									// console.log(data);
+									option2.series[0].data = data;
+									//获取dom容器
+									var myChart = echarts.init(document.getElementById('chartmain_bing'));
+									// 使用刚指定的配置项和数据显示图表。
+									myChart.setOption(option2);
+									},
+							    error: function(){
+									console.log("错误")
+								}
+							});
+							
+					})
+                </script>
+                <span class="border_bg_leftTop"></span>
+                <span class="border_bg_rightTop"></span>
+                <span class="border_bg_leftBottom"></span>
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+        <div class="rightMain_bottom">
+            <div class="rightMain_bottomIn">
+                <h3>登陆日志</h3>
+                <div class="biaoge biaoge_list" style="width:100%; height:36vh">
+                	<div class="biaoge_listIn">
+                    	<ul class="ul_title">
+                            <li>动态</li>
+                        </ul>
+                        <div class="ul_list">
+                        	<div class="ul_listIn">
+                                <ul class="ul_con">
+                                    <li id="userlog1">sdsdsd sdsdsdsdsdsdsds</li>
+                                    <li id="userlog2">2022-10-27 20:31:57</li>
+                                </ul>
+                            </div>
+							
+                       </div>
+                   </div>
+
+                </div>
+                <span class="border_bg_leftTop"></span>
+                <span class="border_bg_rightTop"></span>
+                <span class="border_bg_leftBottom"></span>
+                <span class="border_bg_rightBottom"></span>
+            </div>
+         </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<!--大屏-->
+<!--数字增长累加动画-->
+<script type="text/javascript">
+	$(".shu1").numScroll();
+	$(".shu2").numScroll();
+	$(".shu3").numScroll();
+	$(".shu4").numScroll();
+	$(".shu5").numScroll();
+	$(".shu6").numScroll();
+
+	/*$(".num2").numScroll({
+		time:5000
+	});*/
+</script>
+<script src="js/data.js" type="text/javascript"></script>
+<!--大屏-->
+</body>
+</html>

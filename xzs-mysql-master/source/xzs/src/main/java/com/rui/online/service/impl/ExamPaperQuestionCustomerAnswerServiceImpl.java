@@ -3,6 +3,7 @@ package com.rui.online.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.rui.online.VO.chart.UserCorrect;
 import com.rui.online.VO.student.exam.ExamPaperSubmitItemVM;
 import com.rui.online.VO.student.question.answer.QuestionPageStudentRequestVM;
 import com.rui.online.domain.enums.QuestionTypeEnum;
@@ -90,6 +91,16 @@ public class ExamPaperQuestionCustomerAnswerServiceImpl extends ServiceImpl<Exam
     @Override
     public ExamPaperQuestionCustomerAnswer selectById(Integer id) {
         return examPaperQuestionCustomerAnswerMapper.selectById(id);
+    }
+
+    @Override
+    public void insertList(List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers) {
+        examPaperQuestionCustomerAnswerMapper.insertList(examPaperQuestionCustomerAnswers);
+    }
+
+    @Override
+    public List<UserCorrect> selectUserCorrect() {
+        return examPaperQuestionCustomerAnswerMapper.selectUserCorrect();
     }
 
     private void setSpecialToVM(ExamPaperSubmitItemVM examPaperSubmitItemVM, ExamPaperQuestionCustomerAnswer examPaperQuestionCustomerAnswer) {

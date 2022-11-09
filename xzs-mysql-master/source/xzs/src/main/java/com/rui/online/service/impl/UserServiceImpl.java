@@ -85,4 +85,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user.setImagePath(fileName);
         userMapper.updateById(user);
     }
+
+    @Override
+    public Integer selectAdmin() {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getDeleted,1);
+        queryWrapper.eq(User::getRole,3);
+        return userMapper.selectCount(queryWrapper);
+    }
+
+    @Override
+    public Integer selectUser() {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getRole,1);
+        queryWrapper.eq(User::getRole,1);
+        return userMapper.selectCount(queryWrapper);
+    }
 }

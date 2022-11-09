@@ -2,7 +2,9 @@ package com.rui.online.config.security;
 
 import com.rui.online.config.property.CookieConfig;
 import com.rui.online.utils.JsonUtil;
+import com.rui.online.utils.RedisJsonUtil;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -25,6 +27,9 @@ import java.io.InputStream;
  */
 public class RestLoginAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(RestLoginAuthenticationFilter.class);
+
+    @Autowired
+    private RedisJsonUtil redisJsonUtil;
 
     /**
      * Instantiates a new Rest login authentication filter.
@@ -55,6 +60,7 @@ public class RestLoginAuthenticationFilter extends AbstractAuthenticationProcess
      * @param userDetailsService the user details service
      */
     void setUserDetailsService(UserDetailsService userDetailsService) {
+
         RestTokenBasedRememberMeServices tokenBasedRememberMeServices = new RestTokenBasedRememberMeServices(CookieConfig.getName(), userDetailsService);
         tokenBasedRememberMeServices.setTokenValiditySeconds(CookieConfig.getInterval());
         setRememberMeServices(tokenBasedRememberMeServices);

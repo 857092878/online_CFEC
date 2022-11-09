@@ -32,4 +32,13 @@
         </where>
     </select>
 
+<!--    List<SubjectQuestionNum> selectSubjectQuestionNum();-->
+    <select id="selectSubjectQuestionNum" resultType="com.rui.online.VO.chart.SubjectQuestionNum">
+        SELECT name,count(a.id) value
+        FROM `t_question` a
+            left join t_subject b
+        on a.subject_id = b.id
+        GROUP BY name
+    </select>
+
 </mapper>

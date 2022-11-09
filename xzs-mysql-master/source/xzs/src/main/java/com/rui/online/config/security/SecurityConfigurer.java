@@ -87,6 +87,7 @@ public class SecurityConfigurer {
                     .antMatchers("/api/admin/**").hasRole(RoleEnum.ADMIN.getName())
                     .antMatchers("/api/student/**").hasRole(RoleEnum.STUDENT.getName())
                     .anyRequest().permitAll()
+//                    .antMatchers("/api/chart/**").permitAll()
                     .and().exceptionHandling().accessDeniedHandler(restAccessDeniedHandler)
                     .and().formLogin().successHandler(restAuthenticationSuccessHandler).failureHandler(restAuthenticationFailureHandler)
                     .and().logout().logoutUrl("/api/user/logout").logoutSuccessHandler(restLogoutSuccessHandler).invalidateHttpSession(true)

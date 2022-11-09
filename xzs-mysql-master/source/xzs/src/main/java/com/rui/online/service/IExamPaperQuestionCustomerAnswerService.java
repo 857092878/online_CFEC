@@ -1,6 +1,7 @@
 package com.rui.online.service;
 
 import com.github.pagehelper.PageInfo;
+import com.rui.online.VO.chart.UserCorrect;
 import com.rui.online.VO.student.exam.ExamPaperSubmitItemVM;
 import com.rui.online.VO.student.question.answer.QuestionPageStudentRequestVM;
 import com.rui.online.domain.other.ExamPaperAnswerUpdate;
@@ -32,4 +33,8 @@ public interface IExamPaperQuestionCustomerAnswerService extends IService<ExamPa
     PageInfo<ExamPaperQuestionCustomerAnswer> studentPage(QuestionPageStudentRequestVM model);
 
     ExamPaperQuestionCustomerAnswer selectById(Integer id);
+
+    void insertList(List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers);
+
+    List<UserCorrect> selectUserCorrect();
 }

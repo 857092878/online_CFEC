@@ -4,6 +4,7 @@ import com.rui.online.base.SystemCode;
 import com.rui.online.event.UserEvent;
 import com.rui.online.pojo.UserEventLog;
 import com.rui.online.service.IUserService;
+import com.rui.online.utils.RedisJsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.Authentication;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -29,6 +32,10 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
 
     private final ApplicationEventPublisher eventPublisher;
     private final IUserService userService;
+    public static  String USERLOGINKEY;
+
+    @Autowired
+    private RedisJsonUtil redisJsonUtil;
 
     /**
      * Instantiates a new Rest authentication success handler.
@@ -45,12 +52,29 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Object object = authentication.getPrincipal();
+
         if (null != object) {
             User springUser = (User) object;
-            com.rui.online.pojo.User user = userService.getUserByUserName(springUser.getUsername());
+            /*
+            redis获取user
+             */
+            USERLOGINKEY = "ONLINE_" + springUser.getUsername().toUpperCase() + "_KEY";
+            System.out.println(USERLOGINKEY);
+            List<com.rui.online.pojo.User> users = redisJsonUtil.getBean(USERLOGINKEY, com.rui.online.pojo.User.class);
+            com.rui.online.pojo.User user = new com.rui.online.pojo.User();
+            if (users == null){
+                user = userService.getUserByUserName(springUser.getUsername());
+                redisJsonUtil.setBean(USERLOGINKEY,user);
+            }else{
+                for (com.rui.online.pojo.User user1 : users) {
+                    user = user1;
+                }
+            }
+
+
             if (null != user) {
                 UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-                userEventLog.setContent(user.getUserName() + " 登录了学之思开源考试系统");//设置日志信息
+                userEventLog.setContent(user.getUserName() + " 登录了考试系统");//设置日志信息
                 eventPublisher.publishEvent(new UserEvent(userEventLog));
                 com.rui.online.pojo.User newUser = new com.rui.online.pojo.User();
                 newUser.setUserName(user.getUserName());

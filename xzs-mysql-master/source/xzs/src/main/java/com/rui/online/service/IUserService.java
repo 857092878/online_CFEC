@@ -5,6 +5,7 @@ import com.rui.online.VO.admin.user.UserPageRequestVM;
 import com.rui.online.domain.other.KeyValue;
 import com.rui.online.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import io.swagger.models.auth.In;
 
 import java.util.List;
 
@@ -38,4 +39,8 @@ public interface IUserService extends IService<User> {
     List<KeyValue> selectByUserName(String userName);
 
     void changePicture(User currentUser, String fileName);
+
+    Integer selectAdmin();
+
+    Integer selectUser();
 }

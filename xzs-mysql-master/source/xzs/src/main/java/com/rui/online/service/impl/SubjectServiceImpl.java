@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.education.SubjectPageRequestVM;
+import com.rui.online.VO.chart.SubjectQuestionNum;
 import com.rui.online.pojo.Subject;
 import com.rui.online.mapper.SubjectMapper;
 import com.rui.online.service.ISubjectService;
@@ -61,5 +62,10 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
     @Override
     public List<Subject> getSubjectByLevel(Integer userLevel) {
         return subjectMapper.selectList(new LambdaQueryWrapper<Subject>().eq(Subject::getLevel,userLevel).orderByAsc(Subject::getItemOrder));
+    }
+
+    @Override
+    public List<SubjectQuestionNum> selectSubjectQuestionNum() {
+        return subjectMapper.selectSubjectQuestionNum();
     }
 }

@@ -9,6 +9,8 @@ import com.rui.online.pojo.ExamPaperAnswer;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.rui.online.pojo.User;
 
+import java.util.Date;
+
 /**
  * <p>
  *  服务类
@@ -31,5 +33,11 @@ public interface IExamPaperAnswerService extends IService<ExamPaperAnswer> {
 
     String judge(ExamPaperSubmitVM examPaperSubmitVM);
 
-    PageInfo<ExamPaperAnswer> studentPage(ExamPaperAnswerPageVM model);
+    PageInfo<ExamPaperAnswer> studentPage(ExamPaperAnswerPageVM requestVM);
+
+    void insertByFilter(ExamPaperAnswer examPaperAnswer);
+
+    Integer allAnswer();
+
+    Integer answerByMonth(Date startTime, Date endTime);
 }

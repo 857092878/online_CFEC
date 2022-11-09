@@ -1,5 +1,6 @@
 package com.rui.online.mapper;
 
+import com.rui.online.VO.chart.UserCorrect;
 import com.rui.online.VO.student.question.answer.QuestionPageStudentRequestVM;
 import com.rui.online.domain.other.ExamPaperAnswerUpdate;
 import com.rui.online.domain.other.KeyValue;
@@ -27,4 +28,8 @@ public interface ExamPaperQuestionCustomerAnswerMapper extends BaseMapper<ExamPa
     int updateScore(List<ExamPaperAnswerUpdate> examPaperAnswerUpdates);
 
     List<ExamPaperQuestionCustomerAnswer> studentPage(QuestionPageStudentRequestVM requestVM);
+
+    void insertList(List<ExamPaperQuestionCustomerAnswer> examPaperQuestionCustomerAnswers);
+
+    List<UserCorrect> selectUserCorrect();
 }

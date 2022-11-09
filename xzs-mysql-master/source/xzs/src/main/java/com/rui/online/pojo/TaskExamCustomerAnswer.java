@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author purui
@@ -30,7 +32,7 @@ public class TaskExamCustomerAnswer implements Serializable {
 
     private Integer createUser;
 
-    private LocalDateTime createTime;
+    private Date createTime;
 
     private Integer textContentId;
 

@@ -40,4 +40,25 @@
         </where>
     </select>
 
+<!--Integer selectLoginByMonth(Date startTime, Date endTime);-->
+    <select id="selectLoginByMonth" resultType="java.lang.Integer">
+        SELECT count(*)
+        from
+            (
+                SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time,content from t_user_event_log
+                WHERE  create_time  between  #{startTime}  and  #{endTime}
+            ) a
+        where a.content like '%登录了%'
+    </select>
+<!--    Integer selectLoginByToday(Date startDay, Date endDay);-->
+    <select id="selectLoginByToday" resultType="java.lang.Integer">
+        SELECT count(*)
+        from
+            (
+                SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time,content from t_user_event_log
+                WHERE  create_time  between  #{startDay}  and  #{endDay}
+            ) a
+        where a.content like '%登录了%'
+    </select>
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.rui.online.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.rui.online.VO.admin.paper.ExamPaperAnswerPageRequestVM;
@@ -180,6 +181,21 @@ public class ExamPaperAnswerServiceImpl extends ServiceImpl<ExamPaperAnswerMappe
     public PageInfo<ExamPaperAnswer> studentPage(ExamPaperAnswerPageVM requestVM) {
         return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
                 examPaperAnswerMapper.studentPage(requestVM));
+    }
+
+    @Override
+    public void insertByFilter(ExamPaperAnswer examPaperAnswer) {
+        examPaperAnswerMapper.insert(examPaperAnswer);
+    }
+
+    @Override
+    public Integer allAnswer() {
+        return examPaperAnswerMapper.selectCount(new LambdaQueryWrapper<ExamPaperAnswer>());
+    }
+
+    @Override
+    public Integer answerByMonth(Date startTime, Date endTime) {
+        return examPaperAnswerMapper.answerByMonth(startTime,endTime);
     }
 
     private ExamPaperQuestionCustomerAnswer ExamPaperQuestionCustomerAnswerFromVM(Question question, ExamPaperSubmitItemVM customerQuestionAnswer, ExamPaper examPaper, Integer itemOrder, User user, Date now) {

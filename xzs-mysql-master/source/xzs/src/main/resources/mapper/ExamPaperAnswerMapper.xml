@@ -54,5 +54,13 @@
             </if>
         </where>
     </select>
-
+    <!--    Integer answerByMonth(Date startTime, Date endTime);-->
+    <select id="answerByMonth" resultType="java.lang.Integer">
+        SELECT count(*)
+        from
+            (
+                SELECT DATE_FORMAT(create_time,'%Y-%m-%d') as create_time from t_exam_paper_answer
+                WHERE  create_time  between  #{startTime}  and  #{endTime}
+            ) a
+    </select>
 </mapper>
