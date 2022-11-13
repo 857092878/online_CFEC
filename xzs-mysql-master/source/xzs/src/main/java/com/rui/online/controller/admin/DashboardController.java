@@ -36,10 +36,6 @@ public class DashboardController extends BaseApiController {
         this.examPaperQuestionCustomerAnswerService = examPaperQuestionCustomerAnswerService;
         this.userEventLogService = userEventLogService;
     }
-    @RequestMapping("hello")
-    public String hello(){
-        return "zaijian";
-    }
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public RestResponse<IndexVM> Index() {
         IndexVM vm = new IndexVM();
