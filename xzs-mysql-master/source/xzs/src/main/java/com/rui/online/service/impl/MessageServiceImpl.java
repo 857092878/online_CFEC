@@ -3,6 +3,7 @@ package com.rui.online.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.rui.online.VO.admin.message.MessagePageRequestVM;
 import com.rui.online.VO.student.user.MessageRequestVM;
 import com.rui.online.mapper.MessageUserMapper;
 import com.rui.online.pojo.Message;
@@ -35,6 +36,13 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     public MessageServiceImpl(MessageMapper messageMapper, MessageUserMapper messageUserMapper) {
         this.messageMapper = messageMapper;
         this.messageUserMapper = messageUserMapper;
+    }
+
+    @Override
+    public PageInfo<Message> page(MessagePageRequestVM requestVM) {
+        return PageHelper.startPage(requestVM.getPageIndex(), requestVM.getPageSize(), "id desc").doSelectPageInfo(() ->
+                messageMapper.page(requestVM)
+        );
     }
 
     @Override
@@ -78,5 +86,10 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     public Message messageDetail(Integer id) {
         MessageUser messageUser = messageUserMapper.selectById(id);
         return messageMapper.selectById(messageUser.getMessageId());
+    }
+
+    @Override
+    public List<MessageUser> selectByMessageIds(List<Integer> ids) {
+        return messageUserMapper.selectBatchIds(ids);
     }
 }

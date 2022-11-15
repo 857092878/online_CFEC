@@ -25,4 +25,15 @@
         WHERE id= #{id} and read_count = (SELECT m.read_count from ( SELECT read_count FROM t_message WHERE id = #{id} ) m)
     </update>
 
+    <select id="page" resultMap="BaseResultMap" parameterType="com.rui.online.VO.admin.message.MessagePageRequestVM">
+        select
+        <include refid="Base_Column_List" />
+        from t_message
+        <where>
+            <if test="sendUserName != null">
+                and send_user_name  like concat('%',#{sendUserName},'%')
+            </if>
+        </where>
+    </select>
+
 </mapper>

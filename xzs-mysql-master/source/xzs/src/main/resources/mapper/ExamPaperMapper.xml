@@ -68,7 +68,7 @@
     </update>
 
     <update id="updateTaskPaper">
-        update t_exam_paper set task_exam_id = #{taskId} where id in
+        update t_exam_paper set task_exam_id = #{id} where id in
         <foreach item="id" collection="paperIds" open="(" separator=","
                  close=")">
             #{id}

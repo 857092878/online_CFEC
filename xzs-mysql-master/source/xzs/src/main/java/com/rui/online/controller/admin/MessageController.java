@@ -1,5 +1,8 @@
 package com.rui.online.controller.admin;
 
+import com.github.pagehelper.PageInfo;
+import com.rui.online.VO.admin.message.MessagePageRequestVM;
+import com.rui.online.VO.admin.message.MessageResponseVM;
 import com.rui.online.VO.admin.message.MessageSendVM;
 import com.rui.online.base.RestResponse;
 import com.rui.online.controller.BaseApiController;
@@ -8,6 +11,8 @@ import com.rui.online.pojo.MessageUser;
 import com.rui.online.pojo.User;
 import com.rui.online.service.IMessageService;
 import com.rui.online.service.IUserService;
+import com.rui.online.utils.DateTimeUtil;
+import com.rui.online.utils.PageInfoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,6 +73,21 @@ public class MessageController extends BaseApiController {
         return RestResponse.ok();
     }
 
+    @RequestMapping(value = "/page", method = RequestMethod.POST)
+    public RestResponse<PageInfo<MessageResponseVM>> pageList(@RequestBody MessagePageRequestVM model) {
+        PageInfo<Message> pageInfo = messageService.page(model);
+        List<Integer> ids = pageInfo.getList().stream().map(d -> d.getId()).collect(Collectors.toList());
+        List<MessageUser> messageUsers = ids.size() == 0 ? null : messageService.selectByMessageIds(ids);
+        PageInfo<MessageResponseVM> page = PageInfoHelper.copyMap(pageInfo, m -> {
+            MessageResponseVM vm = modelMapper.map(m, MessageResponseVM.class);
+            String receives = messageUsers.stream().filter(d -> d.getMessageId().equals(m.getId())).map(d -> d.getReceiveUserName())
+                    .collect(Collectors.joining(","));
+            vm.setReceives(receives);
+            vm.setCreateTime(DateTimeUtil.dateFormat(m.getCreateTime()));
+            return vm;
+        });
+        return RestResponse.ok(page);
+    }
 
 
 }
