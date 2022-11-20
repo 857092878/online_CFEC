@@ -29,3 +29,4 @@ logs/
 Thumbs.db
 
 *.class
+/source/xzs/src/main/java/com/rui/online/test01/

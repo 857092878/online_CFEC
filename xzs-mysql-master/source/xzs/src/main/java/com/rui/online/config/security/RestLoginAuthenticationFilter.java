@@ -51,7 +51,6 @@ public class RestLoginAuthenticationFilter extends AbstractAuthenticationProcess
         }
         setDetails(request, authRequest);
         return this.getAuthenticationManager().authenticate(authRequest);
-
     }
 
     /**
