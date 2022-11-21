@@ -35,9 +35,7 @@
       <div class="foot-container">
         <div class="footer-main">
           <h4>产品介绍</h4>
-          <a href="https://www.mindskip.net/sdd.html" target="_blank" class="footer-main-link">思多多智能考试系统</a>
-          <a href="https://www.mindskip.net/wdd.html" target="_blank" class="footer-main-link">维多多培训考试系统</a>
-          <a href="https://www.mindskip.net/xzs.html" target="_blank" class="footer-main-link">学之思开源考试系统</a>
+          <a href="http://116.63.144.190:4869" target="_blank" class="footer-main-link">CQCJXY在线考试教学辅助系统</a>
         </div>
         <div class="footer-main">
           <h4>微信小程序</h4>
@@ -46,19 +44,17 @@
           <img src="@/assets/code/1.jpg" style="width: 100px;height: 100px;"/>
         </div>
         <div class="footer-main">
-          <h4>关于我们</h4>
-          <img src="@/assets/4.jpg" style="width: 100px;height: 100px;"/>
+          <h4>捐助我们</h4>
+          <img src="@/assets/jz.jpg" style="width: 100px;height: 100px;"/>
         </div>
         <div class="footer-main">
           <h4>文档中心</h4>
-          <a href="https://gitee.com/mindskip" target="_blank" class="footer-main-link">学之思仓库地址</a>
-          <a href="https://www.mindskip.net:999" target="_blank" class="footer-main-link">学之思开发文档</a>
-          <a href="https://ke.qq.com/course/3614230" target="_blank" class="footer-main-link">学之思视频教程</a>
+          <a href="http://www.purui.online" target="_blank" class="footer-main-link">我的个人博客</a>
         </div>
       </div>
     </el-footer>
     <div class="foot-copyright">
-      <span>Copyright ©2019-2022 武汉思维跳跃科技有限公司 版权所有</span>
+      <span>渝ICP备2022011581号-1</span>
     </div>
   </el-container>
 </template>

@@ -23,7 +23,7 @@ public class UserTest {
     @Test
     public void getUserByUserName(){
         String username = "admin";
-        System.out.println("Name:陆丹\nSex:女\nClass:21智科1班\nNumber:2021900408");
+        System.out.println("Name:陆丹\nSex:女\nClass:21智科1班\nNumber:2022900408");
 
        // System.out.println(userService.getUserByUserName(username));
     }

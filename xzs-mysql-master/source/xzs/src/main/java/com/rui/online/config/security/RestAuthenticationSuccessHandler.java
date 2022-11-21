@@ -24,8 +24,8 @@ import java.util.Locale;
 /**
  * @version 3.5.0
  * @description: 登录成功返回
- * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
- * @date 2021/12/25 9:45
+ * Copyright (C), 2022-2022, 白色巨塔
+ * @date 2022/12/25 9:45
  */
 @Component
 public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -74,7 +74,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
 
             if (null != user) {
                 UserEventLog userEventLog = new UserEventLog(user.getId(), user.getUserName(), user.getRealName(), new Date());
-                userEventLog.setContent(user.getUserName() + " 登录了考试系统");//设置日志信息
+                userEventLog.setContent(user.getUserName() + " 登录了CFEC在线考试系统");//设置日志信息
                 eventPublisher.publishEvent(new UserEvent(userEventLog));
                 com.rui.online.pojo.User newUser = new com.rui.online.pojo.User();
                 newUser.setUserName(user.getUserName());

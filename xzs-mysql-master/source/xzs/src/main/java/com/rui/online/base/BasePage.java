@@ -3,8 +3,8 @@ package com.rui.online.base;
 /**
  * @version 3.3.0
  * @description: The type Base page.
- * Copyright (C), 2020-2021, 武汉思维跳跃科技有限公司
- * @date 2021/5/25 10:45
+ * Copyright (C), 2022-2022, 白色巨塔
+ * @date 2022/5/25 10:45
  */
 public class BasePage {
 

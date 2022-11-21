@@ -3,7 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">学之思管理系统</h3>
+        <h3 class="title">CFEC管理系统</h3>
       </div>
 
       <el-form-item prop="userName">
@@ -52,7 +52,7 @@
     </el-form>
 
     <div class="account-foot-copyright">
-      <span>Copyright ©2019-2022 武汉思维跳跃科技有限公司 版权所有</span>
+      <span>渝ICP备2022011581号-1</span>
     </div>
   </div>
 </template>

@@ -91,7 +91,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
                 &quot;name&quot;: &quot;\u56FA\u5B9A\u8BD5\u5377&quot;, //\u8BD5\u5377\u540D\u79F0
                 &quot;questionCount&quot;: 1, //\u9898\u76EE\u6570\u91CF
                 &quot;score&quot;: 50, //\u5206\u6570
-                &quot;createTime&quot;: &quot;2021-09-10 16:06:45&quot;, //\u521B\u5EFA\u65F6\u95F4
+                &quot;createTime&quot;: &quot;2022-09-10 16:06:45&quot;, //\u521B\u5EFA\u65F6\u95F4
                 &quot;createUser&quot;: 2, //\u521B\u5EFA\u4EBA
                 &quot;subjectId&quot;: 4, //\u5B66\u79D1
                 &quot;subjectName&quot;: &quot;\u8BED\u6587&quot;, //\u5B66\u79D1\u540D\u79F0
@@ -162,7 +162,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
         &quot;list&quot;: [
             {
                 &quot;id&quot;: 262,
-                &quot;createTime&quot;: &quot;2021-09-15 14:42:22&quot;,  //\u63D0\u4EA4\u65F6\u95F4
+                &quot;createTime&quot;: &quot;2022-09-15 14:42:22&quot;,  //\u63D0\u4EA4\u65F6\u95F4
                 &quot;userScore&quot;: &quot;0&quot;,  //\u5F97\u5206
                 &quot;subjectName&quot;: &quot;\u8BED\u6587&quot;, //\u5B66\u79D1
                 &quot;subjectId&quot;: 4, //\u5B66\u79D1
@@ -199,11 +199,11 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
         &quot;age&quot;: 18, //\u5E74\u9F84
         &quot;role&quot;: 1, //\u89D2\u8272
         &quot;sex&quot;: 1, //\u6027\u522B
-        &quot;birthDay&quot;: &quot;2019-09-17&quot;, //\u751F\u65E5
+        &quot;birthDay&quot;: &quot;2022-09-17&quot;, //\u751F\u65E5
         &quot;phone&quot;: &quot;158800882&quot;, //\u624B\u673A\u53F7
         &quot;lastActiveTime&quot;: &quot;&quot;,
-        &quot;createTime&quot;: &quot;2019-09-07 18:55:02&quot;, //\u521B\u5EFA\u65F6\u95F4
-        &quot;modifyTime&quot;: &quot;2021-09-15 18:38:34&quot;, //\u4FEE\u6539\u65F6\u95F4
+        &quot;createTime&quot;: &quot;2022-09-07 18:55:02&quot;, //\u521B\u5EFA\u65F6\u95F4
+        &quot;modifyTime&quot;: &quot;2022-09-15 18:38:34&quot;, //\u4FEE\u6539\u65F6\u95F4
         &quot;status&quot;: 1, //\u72B6\u6001
         &quot;userLevel&quot;: 1, //\u5E74\u7EA7
         &quot;userLevelStr&quot;: &quot;\u4E00\u5E74\u7EA7&quot;, //\u5E74\u7EA7
@@ -214,7 +214,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-2-9-\u7528\u6237\u4FE1\u606F\u66F4\u65B0" tabindex="-1"><a class="header-anchor" href="#_4-2-9-\u7528\u6237\u4FE1\u606F\u66F4\u65B0" aria-hidden="true">#</a> 4.2.9 \u7528\u6237\u4FE1\u606F\u66F4\u65B0</h3><ul><li>\u63A5\u53E3\u5730\u5740\uFF1A/api/wx/student/user/update</li><li>\u8BF7\u6C42\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>    &quot;realName&quot;: &quot;\u5B66\u751F&quot;,  //\u771F\u5B9E\u59D3\u540D
     &quot;age&quot;: 18, //\u5E74\u9F84
     &quot;sex&quot;: &quot;1&quot;, //\u6027\u522B
-    &quot;birthDay&quot;: &quot;2019-09-17&quot;,  //\u51FA\u751F\u65E5\u671F
+    &quot;birthDay&quot;: &quot;2022-09-17&quot;,  //\u51FA\u751F\u65E5\u671F
     &quot;phone&quot;: &quot;158800882&quot; //\u624B\u673A\u53F7
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>\u8FD4\u56DE\u53C2\u6570\uFF1A</li></ul><div class="language-text ext-text line-numbers-mode"><pre class="language-text"><code>{
     &quot;code&quot;: 1,
@@ -227,11 +227,11 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
         &quot;age&quot;: 18, //\u5E74\u9F84
         &quot;role&quot;: 1, //\u89D2\u8272
         &quot;sex&quot;: 1, //\u6027\u522B
-        &quot;birthDay&quot;: &quot;2019-09-17 00:00:00&quot;, //\u51FA\u751F\u65E5\u671F
+        &quot;birthDay&quot;: &quot;2022-09-17 00:00:00&quot;, //\u51FA\u751F\u65E5\u671F
         &quot;phone&quot;: &quot;158800882&quot;, //\u624B\u673A\u53F7
         &quot;lastActiveTime&quot;: &quot;&quot;, //\u6700\u597D\u6D3B\u52A8\u65F6\u95F4
-        &quot;createTime&quot;: &quot;2019-09-07 18:55:02&quot;, //\u521B\u5EFA\u65F6\u95F4
-        &quot;modifyTime&quot;: &quot;2021-09-23 21:20:34&quot;, //\u4FEE\u6539\u65F6\u95F4
+        &quot;createTime&quot;: &quot;2022-09-07 18:55:02&quot;, //\u521B\u5EFA\u65F6\u95F4
+        &quot;modifyTime&quot;: &quot;2022-09-23 21:20:34&quot;, //\u4FEE\u6539\u65F6\u95F4
         &quot;status&quot;: 1, //\u72B6\u6001
         &quot;userLevel&quot;: 1, //\u5E74\u7EA7
         &quot;userLevelStr&quot;: null,  //\u5E74\u7EA7
@@ -249,7 +249,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
             &quot;userName&quot;: &quot;student&quot;, //\u7528\u6237\u540D
             &quot;realName&quot;: &quot;\u5B66\u751F&quot;, //\u771F\u5B9E\u59D3\u540D
             &quot;content&quot;: &quot;student \u767B\u5F55\u4E86\u5B66\u4E4B\u601D\u5F00\u6E90\u8003\u8BD5\u7CFB\u7EDF&quot;, //\u65E5\u5FD7\u5185\u5BB9
-            &quot;createTime&quot;: &quot;2021-09-24 21:52:05&quot; //\u521B\u5EFA\u65F6\u95F4
+            &quot;createTime&quot;: &quot;2022-09-24 21:52:05&quot; //\u521B\u5EFA\u65F6\u95F4
         }
     ]
 }
@@ -267,7 +267,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
                 &quot;messageId&quot;: 17,  //\u6D88\u606Fid
                 &quot;content&quot;: &quot;\u5047\u671F\u4E03\u5929\u8BF7\u6CE8\u610F\u5B89\u5168\u3002\u3002\u3002&quot;,  //\u6D88\u606F\u5185\u5BB9
                 &quot;readed&quot;: true, //\u662F\u5426\u5DF2\u8BFB
-                &quot;createTime&quot;: &quot;2021-09-25 14:51:32&quot;, //\u521B\u5EFA\u65F6\u95F4
+                &quot;createTime&quot;: &quot;2022-09-25 14:51:32&quot;, //\u521B\u5EFA\u65F6\u95F4
                 &quot;sendUserName&quot;: &quot;admin&quot; //\u53D1\u9001\u4EBA\u7528\u6237\u540D
             }
         ]
@@ -280,7 +280,7 @@ import{_ as e,o as i,c as n,e as u}from"./app.5bff4b1a.js";const d={},s=u(`<h1 i
         &quot;id&quot;: 73,
         &quot;title&quot;: &quot;\u56FD\u5E86\u5047\u8BF4\u660E&quot;,  //\u6D88\u606F\u6807\u9898
         &quot;content&quot;: &quot;\u5047\u671F\u4E03\u5929\u8BF7\u6CE8\u610F\u5B89\u5168\u3002\u3002\u3002&quot;,  //\u6D88\u606F\u5185\u5BB9
-        &quot;createTime&quot;: &quot;2021-09-25 14:51:32&quot;,  //\u521B\u5EFA\u65F6\u95F4
+        &quot;createTime&quot;: &quot;2022-09-25 14:51:32&quot;,  //\u521B\u5EFA\u65F6\u95F4
         &quot;sendUserId&quot;: 2, //\u53D1\u9001\u4EBAid
         &quot;sendUserName&quot;: &quot;admin&quot;, //\u53D1\u9001\u4EBA\u7528\u6237\u540D
         &quot;sendRealName&quot;: &quot;\u7BA1\u7406\u5458&quot;, //\u53D1\u9001\u4EBA\u771F\u5B9E\u59D3\u540D
