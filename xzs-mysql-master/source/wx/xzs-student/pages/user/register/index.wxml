@@ -1,6 +1,6 @@
 <wxs module="enumItem" src="../../../wxs/enumItem.wxs"></wxs>
 <view class="card-image-container">
-  <image src="/assets/logo2.png" style="width:175px;height:147px"></image>
+  <image src="/assets/logo3.png" style="width:175px;height:147px"></image>
 </view>
 
 <form bindsubmit='formSubmit'>
