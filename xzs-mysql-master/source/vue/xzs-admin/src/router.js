@@ -248,6 +248,21 @@ const constantRoutes = [
     ]
   },
   {
+    path: '/echart',
+    component: Layout,
+    children: [
+      {
+        path:'echart',
+        component: () => import('@/views/echart/index'),
+        name: 'echart',
+        meta: {
+          title: '数据展示',
+          icon: 'star'
+        },
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: Layout,
     hidden: true,
@@ -260,6 +275,7 @@ const constantRoutes = [
       }
     ]
   },
+
   { path: '*',
     hidden: true,
     component: () => import('@/views/error-page/404'),
