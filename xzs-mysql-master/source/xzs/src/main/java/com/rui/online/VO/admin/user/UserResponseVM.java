@@ -4,7 +4,9 @@ package com.rui.online.VO.admin.user;
 import com.rui.online.VO.BaseVM;
 import com.rui.online.pojo.User;
 import com.rui.online.utils.DateTimeUtil;
+import lombok.ToString;
 
+@ToString
 public class UserResponseVM extends BaseVM {
 
     private Integer id;

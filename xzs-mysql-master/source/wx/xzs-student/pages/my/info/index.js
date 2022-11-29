@@ -4,10 +4,30 @@ Page({
   data: {
     userInfo: null,
     spinShow: false,
-    levelIndex: 0
+    levelIndex: 0,
+    status: true
   },
   onLoad: function(options) {
     this.loadUserInfo()
+    let _this = this
+    app.formPost('/api/wx/hidden/status', null).then(res => {
+        _this.setData({
+          spinShow: false
+        });
+        wx.stopPullDownRefresh()
+        if (res.code === 1) {
+          _this.setData({
+            status: res.response.status,
+          });
+        }
+        console.log("hhhhhhhhhhhhh")
+        // console.log(status)
+      }).catch(e => {
+        _this.setData({
+          spinShow: false
+        });
+        app.message(e, 'error')
+      })
   },
   loadUserInfo() {
     let _this = this

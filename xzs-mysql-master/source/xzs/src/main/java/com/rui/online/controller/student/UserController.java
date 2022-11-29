@@ -101,6 +101,7 @@ public class UserController extends BaseApiController {
     public RestResponse<UserResponseVM> current() {
         User user = getCurrentUser();
         UserResponseVM userVm = UserResponseVM.from(user);
+        System.out.println(userVm);
         return RestResponse.ok(userVm);
     }
     /*

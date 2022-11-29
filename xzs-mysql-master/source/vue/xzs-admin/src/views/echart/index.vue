@@ -1,6 +1,6 @@
 <template>
    <div>
-   <iframe src="http://localhost:8000/index.html"  id="mobsf"  scrolling="no" frameborder="0" style="position:relative;top:0px;left: -50px;"></iframe>
+   <iframe src="https://www.purui.online:8000/index.html"  id="mobsf"  scrolling="no" frameborder="0" style="position:relative;top:0px;left: -50px;"></iframe>
    
    </div>
    </template>

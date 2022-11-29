@@ -8,7 +8,8 @@
           </div>
           <el-row style="text-align: center">
             <el-upload action="/api/student/upload/image"  accept=".jpg,.png" :show-file-list="false"  :on-success="uploadSuccess">
-              <el-avatar class="el-dropdown-avatar" :size="100" :src="form.imagePath === null ? require('@/assets/avatar.png') : form.imagePath"></el-avatar>
+              <el-avatar class="el-dropdown-avatar" :size="100" :src="form.imagePath === null ? require('@/assets/avatar.png') : '/api/upload/'+ form.imagePath"></el-avatar>
+              <!-- <el-avatar class="el-dropdown-avatar" :size="100" :src="'/api/upload/'+ '038789a2-6efa-4208-8619-eeb46d15363e.jpg'"></el-avatar> -->
             </el-upload>
           </el-row>
           <el-row class="user-info-userName">
@@ -158,5 +159,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

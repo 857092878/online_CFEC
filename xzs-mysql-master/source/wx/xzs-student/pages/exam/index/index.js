@@ -77,7 +77,7 @@ Page({
         if (re.pageNum >= re.pages) {
           this.setData({
             loadMoreLoad: false,
-            loadMoreTip: '暂无数据'
+            loadMoreTip: ''
           });
         }
       }

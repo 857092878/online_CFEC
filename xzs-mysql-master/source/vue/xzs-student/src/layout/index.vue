@@ -4,7 +4,7 @@
       <div class="head-user">
         <el-dropdown trigger="click" placement="bottom">
           <el-badge :is-dot="messageCount!==0" >
-            <el-avatar  class="el-dropdown-avatar" size="medium"  :src="userInfo.imagePath === null ? require('@/assets/avatar.png') : userInfo.imagePath"></el-avatar>
+            <el-avatar  class="el-dropdown-avatar" size="medium"  :src="userInfo.imagePath === null ? require('@/assets/avatar.png') : '/api/upload/'+ userInfo.imagePath"></el-avatar>
           </el-badge>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="$router.push({path:'/user/index'})">个人中心</el-dropdown-item>
@@ -35,21 +35,37 @@
       <div class="foot-container">
         <div class="footer-main">
           <h4>产品介绍</h4>
-          <a href="http://116.63.144.190:4869" target="_blank" class="footer-main-link">CQCJXY在线考试教学辅助系统</a>
+          <div>
+            <el-link href="http://116.63.144.190:4869" target="_blank">CQCJXY在线考试教学辅助系统</el-link><br><br>
+            简介:CQCJXY在线考试教学<br>
+            辅助系统做为CFEC在线考试<br>
+            系统的辅助系统是一个在线<br>
+            测试学习系统，用于辅助课<br>
+            程教学和学生学习。
+          </div>
         </div>
         <div class="footer-main">
           <h4>微信小程序</h4>
-          <img src="@/assets/code/3.jpg" style="width: 100px;height: 100px;margin-right: 30px"/>
-          <img src="@/assets/code/7.jpg" style="width: 100px;height: 100px;margin-right: 30px"/>
-          <img src="@/assets/code/1.jpg" style="width: 100px;height: 100px;"/>
+          <img src="@/assets/xiaochengxu.jpg" style="width: 100px;height: 100px;margin-right: 30px"/>
         </div>
+
+        <div class="footer-main">
+          <h4>学生端</h4>
+          <el-link href="https:www.purui.online:8001/student" target="_blank">CFEC在线考试系统学生端</el-link><br><br>
+          简介:CFEC在线考试系统学生端<br>
+          使用网页版的形式是学生更方便<br>
+          的用浏览器实现在线刷题。
+        </div>
+
         <div class="footer-main">
           <h4>捐助我们</h4>
           <img src="@/assets/jz.jpg" style="width: 100px;height: 100px;"/>
         </div>
         <div class="footer-main">
-          <h4>文档中心</h4>
-          <a href="http://www.purui.online" target="_blank" class="footer-main-link">我的个人博客</a>
+          <h4>关于我们</h4>
+          博客：<el-link href="https://blog.csdn.net/weixin_57730366?type=blog" target="_blank">朴朴爱吃肉肉</el-link><br><br>
+          项目地址：<el-link href="https://element.eleme.io" target="_blank">CFEC在线考试系统</el-link><br><br>
+          联系方式：QQ：857092878
         </div>
       </div>
     </el-footer>

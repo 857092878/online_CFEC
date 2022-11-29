@@ -1,8 +1,10 @@
 package com.rui.online.VO.xv.stuent.user;
 
 
-import javax.validation.constraints.NotBlank;
+import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
+@ToString
 public class BindInfo {
 
     @NotBlank

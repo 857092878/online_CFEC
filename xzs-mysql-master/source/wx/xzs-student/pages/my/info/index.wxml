@@ -1,6 +1,6 @@
 <wxs module="enumItem" src="../../../wxs/enumItem.wxs"></wxs>
 
-<form bindsubmit='formSubmit'>
+<form hidden="{{status}}" bindsubmit='formSubmit'>
   <i-panel title="真实姓名">
     <i-input value="{{ userInfo.realName }}" name="realName" maxlength="-1" />
   </i-panel>
@@ -35,6 +35,7 @@
   </view>
 
 </form>
+
 
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 <i-message id="message" />

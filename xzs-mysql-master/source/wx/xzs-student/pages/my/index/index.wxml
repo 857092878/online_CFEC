@@ -1,6 +1,7 @@
 <view class="userinfo">
   <block>
-    <image class="userinfo-avatar" src="{{info.imagePath}}"></image>
+    <!-- <image class="userinfo-avatar" src="{{info.imagePath}}"></image> -->
+       <image class="userinfo-avatar" src="/assets/logo3.png"></image>
     <text class="userinfo-nickname">{{info.userName}}</text>
   </block>
 </view>
@@ -18,7 +19,7 @@
   </i-cell-group>
 </view>
 
-<view>
+<!-- <view>
   <i-cell-group i-class="my-group-margin">
     <i-cell title="设置" is-link url="/pages/dashboard/index">
       <i-icon type="setup_fill" slot="icon" size="20" />
@@ -30,7 +31,7 @@
       <i-icon type="prompt_fill" slot="icon" size="20" />
     </i-cell>
   </i-cell-group>
-</view>
+</view> -->
 
 <view>
   <i-cell-group i-class="my-group-margin">

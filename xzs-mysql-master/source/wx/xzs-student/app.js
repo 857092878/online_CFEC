@@ -5,7 +5,7 @@ const mtjwxsdk = require('./utils/mtj-wx-sdk.js');
 
 App({
   globalData: {
-    baseAPI: "http://www.purui.online:8001",
+    baseAPI: "https://www.purui.online:8000",
     pageSize: 20
   },
   onLaunch: function() {

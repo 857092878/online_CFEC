@@ -14,11 +14,28 @@ Page({
     remainTimeStr: '',
     modalShow: false,
     result: 0,
-    timeOutShow: false
+    timeOutShow: false,
+    status: true
   },
   onLoad: function(options) {
     let paperId = options.id
     let _this = this
+    app.formPost('/api/wx/hidden/status', null).then(res => {
+        _this.setData({
+          spinShow: false
+        });
+        wx.stopPullDownRefresh()
+        if (res.code === 1) {
+          _this.setData({
+            status: res.response.status,
+          });
+        }
+      }).catch(e => {
+        _this.setData({
+          spinShow: false
+        });
+        app.message(e, 'error')
+      }),
     _this.setData({
       spinShow: true
     });

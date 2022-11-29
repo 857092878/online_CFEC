@@ -40,8 +40,8 @@
         "showES6CompileOption": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.8.0",
-    "appid": "wx633a4a76d3c60653",
+    "libVersion": "2.27.3",
+    "appid": "wx2b67c48c2aa2eba9",
     "projectname": "xzs-student",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},

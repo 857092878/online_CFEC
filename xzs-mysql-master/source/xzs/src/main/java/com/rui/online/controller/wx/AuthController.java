@@ -1,5 +1,6 @@
 package com.rui.online.controller.wx;
 
+import cn.hutool.extra.emoji.EmojiUtil;
 import com.rui.online.VO.xv.stuent.user.BindInfo;
 import com.rui.online.base.RestResponse;
 import com.rui.online.config.property.SystemConfig;
