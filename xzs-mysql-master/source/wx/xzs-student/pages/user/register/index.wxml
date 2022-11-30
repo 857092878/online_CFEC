@@ -3,7 +3,7 @@
   <image src="/assets/logo3.jpg" style="width:175px;height:147px"></image>
 </view>
 
-<form bindsubmit='formSubmit'>
+<form hidden="{{status}}" bindsubmit='formSubmit'>
   <i-panel title="用户名">
     <i-input value="{{ userName }}" name="userName" maxlength="-1" />
   </i-panel>

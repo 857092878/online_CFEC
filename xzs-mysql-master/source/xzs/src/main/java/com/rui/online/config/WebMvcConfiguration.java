@@ -43,7 +43,6 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/static/")
                 .setCachePeriod(31556926);
         registry.addResourceHandler("/api/upload/**").addResourceLocations("file:///"+ file);
-//        registry.addResourceHandler("/api/wx/upload/**").addResourceLocations("file:///"+ file);
     }
 
     @Override

@@ -15,6 +15,7 @@ system:
       - /api/wx/student/auth/bind
       - /api/wx/student/auth/checkBind
       - /api/wx/student/user/register
+      - /api/wx/hidden/status
   qn:
     url: http://xzs.file.mindskip.net
     bucket: mindskip
