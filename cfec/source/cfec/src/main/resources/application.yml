@@ -1,0 +1,20 @@
+system:
+  security-ignore-urls:
+    - /api/wx/**
+    - /api/admin/upload/configAndUpload
+    - /api/admin/upload/auth
+    - /api/student/user/register
+  pwdKey:
+    publicKey: XXX
+    privateKey: XXX
+  wx:
+    appid:
+    secret:
+    token-to-live: 12h   #token 过期时间
+    security-ignore-urls:
+      - /api/wx/student/auth/bind
+      - /api/wx/student/auth/checkBind
+      - /api/wx/student/user/register
+      - /api/wx/hidden/status
+
+

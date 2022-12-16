@@ -1,3 +1,3 @@
 function urlconfig(data){
-	return "http://localhost:8000/api/chart/"+ data;
+	return "https://www.purui.online:8000/api/chart/"+ data;
 }
